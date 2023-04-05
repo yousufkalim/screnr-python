@@ -1,0 +1,57 @@
+{	"name": "overhead squat",
+	"angles":{	
+		"left":	{
+			"left_knee_angle": {"left_joint": "Left_Hip", "mid_joint": "Left_Knee", "right_joint":"Left_Ankle", "full_round": "True", "small_angle": "True"},
+			"left_shoulder_angle": {"left_joint": "Left_Wrist", "mid_joint": "Left_Shoulder", "right_joint": ["Left_Shoulder", 1, 1.20], "full_round": "True", "small_angle": "True"},
+			"left_hip_angle":  {"left_joint": ["Left_Hip", 1, 1.20], "mid_joint": "Left_Hip", "right_joint": "Left_Knee", "full_round": "True", "small_angle": "True"},
+			"left_spine_angle":  {"left_joint": "Left_Shoulder", "mid_joint": "Left_Hip", "right_joint": ["Left_Hip", 1, 1.20], "full_round": "True", "small_angle": "True"},
+			"left_shin_angle":  {"left_joint": "Left_Knee", "mid_joint": "Left_Ankle", "right_joint": ["Left_Ankle", 1, 1.20], "full_round": "True", "small_angle": "True"}
+	    },
+		"right": {
+			"right_knee_angle": {"left_joint": "Right_Hip", "mid_joint": "Right_Knee", "right_joint":"Right_Ankle", "full_round": "True", "small_angle": "True"}
+		}
+	},
+
+	"phases_nums": [0,1,2,3,4,5],
+
+	"phases":{
+		"left": {
+				"1": {"phase": 0, "phase_update": 1, "rep_complete": 0, "angles": {"left_knee_angle": {"sign": "<", "value": 165}}},
+                "2": {"phase": 1, "phase_update": 0, "rep_complete": 0, "angles": {"left_knee_angle": {"sign": ">=", "value": 170}}},
+                "3": {"phase": 1, "phase_update": 2, "rep_complete": 0, "angles": {"left_knee_angle": {"sign": "<", "value": 135}}},
+                "4": {"phase": 2, "phase_update": 3, "rep_complete": 0, "angles": {"left_knee_angle": {"sign": ">=", "value": 135}}},
+                "5": {"phase": 3, "phase_update": 0, "rep_complete": 1, "angles": {"left_knee_angle": {"sign": ">=", "value": 170}}}
+		}
+	},
+
+	"rules":{
+		"left": { 
+			"check_knees_vs_toes": {"priority": 2, "phase": 2, "angles": {"left_shin_angle": {"min_or_max": "min", "sign": "<", "threshold": 153}}, "fail_message": "Don't let knees pass the toes", "pass_message": "Good work on keeping knees behind toes!"},		
+			"check_chest": {"priority": 1, "phase": 2, "angles": {"left_spine_angle": {"min_or_max": "min", "sign": "<", "threshold": 155}}, "fail_message": "Keep chest up", "pass_message": "Good work on keeping chest up!"},		
+			"check_hips": {"priority": 2, "phase": 2, "angles": {"left_hip_angle": {"min_or_max": "max", "sign": "<", "threshold": 85}}, "fail_message": "sit hips lower", "pass_message": "Great hip depth!"},
+			"check_heel": {"priority": 1, "phase": 2, "angles": {"left_shin_angle": {"min_or_max": "min", "sign": "<", "threshold": 153}}, "fail_message": "Stay on heels", "pass_message": "Great heel pressure!"}	
+		}
+	},
+	
+	"tolerance": {
+		"left": 0.0,
+		"right": 0.0,
+		"front": 0.0
+	},
+	
+	"feedback_probs": {
+		"left":	{
+			"fail_prob": 0.40, "pass_prob": 0.20, "custom_prob": 0.15, "shush_prob": 0.25
+		},
+		"right":	{
+			"fail_prob": 0.40, "pass_prob": 0.20, "custom_prob": 0.15, "shush_prob": 0.25
+		}
+	},
+
+	"display_joints": {	"left": ["Left_Shoulder", "Left_Elbow", "Left_Wrist", "Left_Index", "Left_Hip", "Left_Knee", "Left_Ankle","Left_Foot_Index"], 
+						"right": ["Right_Shoulder", "Right_Elbow", "Right_Wrist", "Right_Index", "Right_Hip", "Right_Knee", "Right_Ankle", "Right_Foot_Index"]}
+}
+
+
+
+

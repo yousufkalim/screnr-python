@@ -1,0 +1,54 @@
+{	"name": "overhead squat",
+	"angles":{	
+		"left":	{
+			"left_v_shoulder_angle": {"left_joint": "Left_Elbow", "mid_joint": "Left_Shoulder", "right_joint": ["Left_Shoulder", 1, 1.20], "full_round": "True", "small_angle": "True"},
+			"left_shoulder_angle": {"left_joint": "Left_Elbow", "mid_joint": "Left_Shoulder", "right_joint": "Left_Hip", "full_round": "True", "small_angle": "True"},
+			"left_vhip_angle": {"left_joint": "Left_Knee", "mid_joint": "Left_Hip", "right_joint": ["Left_Hip", 1, 1.20], "full_round": "True", "small_angle": "True"},
+			"left_knee_angle": {"left_joint": "Left_Hip", "mid_joint": "Left_Knee", "right_joint": "Left_Ankle", "full_round": "True", "small_angle": "True"}
+		},
+		"right": {
+			"right_v_shoulder_angle": {"left_joint": "Right_Elbow", "mid_joint": "Right_Shoulder", "right_joint": ["Right_Shoulder", 1, 1.20], "full_round": "True", "small_angle": "True"},
+			"right_shoulder_angle": {"left_joint": "Right_Elbow", "mid_joint": "Right_Shoulder", "right_joint": "Right_Hip", "full_round": "True", "small_angle": "True"},
+			"right_vhip_angle": {"left_joint": "Right_Knee", "mid_joint": "Right_Hip", "right_joint": ["Right_Hip", 1, 1.20], "full_round": "True", "small_angle": "True"},
+			"right_knee_angle": {"left_joint": "Right_Hip", "mid_joint": "Right_Knee", "right_joint": "Right_Ankle", "full_round": "True", "small_angle": "True"}
+		}
+	},
+
+	"phases":{
+		"left": "None",
+		"right": "None"
+	},
+
+	"rules":{
+		"left": {
+			"check_left_v_shoulder_angle": {"priority": 1, "phase": "None", "angles": {"left_v_shoulder_angle": {"min_or_max": "min", "sign": ">", "threshold": 15}}, "fail_message": "Move hands in line with shoulder", "pass_message": "Good work! Hands are in line with shoulder"},		
+			"check_left_vhip_angle": {"priority": 1, "phase": "None", "angles": {"left_vhip_angle": {"min_or_max": "min", "sign": "<", "threshold": 78}}, "fail_message": "Move hips lower", "pass_message": "Good work with keeping hips lower!"}	
+		},
+		"right": {
+			"check_right_v_shoulder_angle": {"priority": 1, "phase": "None", "angles": {"right_v_shoulder_angle": {"min_or_max": "min", "sign": ">", "threshold": 15}}, "fail_message": "Move hands in line with shoulder", "pass_message": "Good work! Hands are in line with shoulder"},		
+			"check_right_vhip_angle": {"priority": 1, "phase": "None", "angles": {"right_vhip_angle": {"min_or_max": "min", "sign": "<", "threshold": 78}}, "fail_message": "Move hips lower", "pass_message": "Good work with keeping hips lower!"}	
+		}
+	},
+	
+	"tolerance": {
+		"left": 0.0,
+		"right": 0.0,
+		"front": 0.0
+	},
+	
+	"feedback_probs": {
+		"left":	{
+			"fail_prob": 0.35, "pass_prob": 0.20, "custom_prob": 0.10, "shush_prob": 0.35
+		},
+		"right":	{
+			"fail_prob": 0.35, "pass_prob": 0.20, "custom_prob": 0.10, "shush_prob": 0.25
+		}
+	},
+	
+	"display_joints": {	"left":  ["Left_Shoulder",  "Left_Elbow",  "Left_Wrist",  "Left_Hip",  "Left_Knee",  "Left_Ankle", "Left_Foot_Index"], 
+						"right": ["Right_Shoulder", "Right_Elbow", "Right_Wrist", "Right_Hip", "Right_Knee", "Right_Ankle","Right_Foot_Index"]}
+}
+
+
+
+
